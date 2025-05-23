@@ -10,7 +10,7 @@ export default function Header({ connectionStatus, onConnect }) {
               <path d="M12 4L3 9L12 14L21 9L12 4Z" fill="currentColor" />
               <path d="M3 14L12 19L21 14" fill="currentColor" opacity="0.5" />
             </svg>
-            DroneVision AI Control
+            DroneAgent AI Control
           </div>
         </div>
         

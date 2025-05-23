@@ -1,12 +1,15 @@
 import { useState } from 'react';
 
+import React from 'react';
+
 export default function CameraControls({ 
   cameraState, 
   connectionStatus,
   onToggleStreaming,
   onToggleRecording,
   onChangeCameraMode,
-  onChangeCameraResolution
+  onChangeCameraResolution,
+  droneState
 }) {
   return (
     <div className="bg-white rounded-xl shadow-lg p-6 mt-6">

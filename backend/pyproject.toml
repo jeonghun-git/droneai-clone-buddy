@@ -1,0 +1,13 @@
+[project]
+name = "droneai-project"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "bs4>=0.0.2",
+    "lxml>=5.4.0",
+    "openai>=1.79.0",
+    "python-dotenv>=1.1.0",
+    "requests>=2.32.3",
+]

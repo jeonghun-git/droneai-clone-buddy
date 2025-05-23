@@ -17,7 +17,7 @@ export default function SystemLog({
         <div className="text-xs text-gray-500">{new Date().toLocaleString()}</div>
       </div>
       <div className="bg-gray-800 text-gray-300 font-mono text-xs p-4 rounded-md h-48 overflow-y-auto leading-relaxed">
-        <p><span className="text-blue-400">$ DroneVision AI Control v1.0 initialized.</span></p>
+        <p><span className="text-blue-400">$ DroneAgent AI Control v1.0 initialized.</span></p>
         <p><span className={connectionStatus === 'connected' ? 'text-green-400' : connectionStatus === 'connecting' ? 'text-yellow-400 animate-pulse' : 'text-red-400'}>$ Connection: {connectionStatus.toUpperCase()}</span></p>
         <p><span className="text-cyan-400">$ Mode: {isVoiceMode ? 'Voice Recognition' : 'Manual Text Input'}</span></p>
         {isVoiceMode && <p><span className="text-cyan-400">$ Voice Setting: {autoVoice ? 'Auto Transcription ON' : 'Auto Transcription OFF'}</span></p>}
