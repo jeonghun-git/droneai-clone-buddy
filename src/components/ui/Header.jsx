@@ -3,7 +3,7 @@ import { useState } from 'react';
 
 export default function Header({ connectionStatus, onConnect }) {
   return (
-    <header className="bg-navy text-white p-4 shadow-md">
+    <header className="bg-gray-950 text-white p-4 shadow-md">
       <div className="container mx-auto">
         {/* 데스크톱: 한 행, 모바일: 두 행 */}
         <div className="flex flex-col md:flex-row md:justify-between md:items-center">

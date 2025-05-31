@@ -17,7 +17,7 @@ export default function CameraControls({
       <div className="flex justify-between items-center mb-3 md:mb-4">
         <h2 className="text-lg md:text-xl font-semibold text-gray-700">📷 카메라 & 드론 상태</h2>
         <div className="text-xs md:text-sm bg-gray-100 px-2 md:px-3 py-1 rounded-full font-medium">
-          🔋 배터리: {connectionStatus === 'connected' ? '87%' : '0%'}
+          🔋 {connectionStatus === 'connected' ? '87%' : '0%'}
         </div>
       </div>
       
@@ -68,7 +68,7 @@ export default function CameraControls({
               py-2 px-3 md:py-2.5 md:px-4 rounded-md font-semibold text-xs focus:outline-none focus:ring-2 focus:ring-offset-2 transition-colors
               ${cameraState.streaming 
                 ? 'bg-red-500 text-white hover:bg-red-600 focus:ring-red-500' 
-                : 'bg-blue-500 text-white hover:bg-blue-600 focus:ring-blue-500'}
+                : 'bg-gray-400 text-white hover:bg-gray-600 focus:ring-gray-500'}
               disabled:opacity-50 disabled:cursor-not-allowed
             `}
           >
@@ -81,7 +81,7 @@ export default function CameraControls({
               py-2 px-3 md:py-2.5 md:px-4 rounded-md font-semibold text-xs focus:outline-none focus:ring-2 focus:ring-offset-2 transition-colors
               ${cameraState.recording 
                 ? 'bg-red-500 text-white hover:bg-red-600 focus:ring-red-500 animate-pulse' 
-                : 'bg-gray-200 text-gray-700 hover:bg-gray-300 focus:ring-gray-500'}
+                : 'bg-gray-200 text-gray-600 hover:bg-gray-300 focus:ring-gray-500'}
               disabled:opacity-50 disabled:cursor-not-allowed
             `}
           >
@@ -99,7 +99,7 @@ export default function CameraControls({
               disabled:opacity-50 disabled:cursor-not-allowed
             "
           >
-            {cameraState.mode === 'tracking' ? '🎯 추적 모드' : '👁️ 일반 모드'}
+            {cameraState.mode === 'tracking' ? '추적 모드' : '일반 모드'}
           </button>
           <select 
             value={cameraState.resolution}

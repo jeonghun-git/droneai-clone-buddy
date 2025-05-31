@@ -21,7 +21,7 @@ export default function VoiceControl({
             disabled={!isVoiceMode || connectionStatus !== 'connected'}
             className={`
               flex items-center justify-center px-4 py-1.5 rounded-md text-sm font-medium
-              ${isRecording ? 'bg-red-100 text-red-600 animate-pulse' : 'bg-blue-100 text-blue-600'}
+              ${isRecording ? 'bg-red-100 text-red-600 animate-pulse' : 'bg-gray-100 text-gray-600'}
               disabled:opacity-50 disabled:cursor-not-allowed
             `}
           >
@@ -55,7 +55,7 @@ export default function VoiceControl({
           <button 
             onClick={onSendCommand}
             disabled={!commandInput.trim() || connectionStatus !== 'connected'}
-            className="bg-blue-600 text-white py-2 px-4 rounded-r-md font-medium hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:bg-gray-400 disabled:cursor-not-allowed"
+            className="bg-gray-600 text-white py-2 px-4 rounded-r-md font-medium hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:bg-gray-400 disabled:cursor-not-allowed"
           >
             전송
           </button>
