@@ -103,9 +103,9 @@ export default function DroneControlUI() {
         </div>
         
         {/* 두 번째 행: 지도와 시스템 로그 */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5">
           {/* 지도 컴포넌트 */}
-          <div className="bg-white rounded-xl shadow-lg p-6 flex flex-col md:col-span-3" style={{ minHeight: '300px', zIndex: 0 }}>
+          <div className="bg-white rounded-xl shadow-lg p-6 flex flex-col" style={{ minHeight: '300px', zIndex: 0 }}>
             <h2 className="text-xl font-semibold text-gray-700 border-b pb-2 mb-4">
               현재 위치
             </h2>
@@ -115,7 +115,7 @@ export default function DroneControlUI() {
           </div>
 
           {/* 시스템 콘솔 */}
-          <div className="md:col-span-1" style={{ minHeight: '300px' }}>
+          <div style={{ minHeight: '300px' }}>
             <SystemLog
               connectionStatus={drone.connectionStatus}
               isVoiceMode={voice.isVoiceMode}
