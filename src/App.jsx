@@ -56,20 +56,20 @@ export default function DroneControlUI() {
             ) : (
               <div className="bg-white rounded-xl shadow-lg p-6">
                 <label htmlFor="commandInput" className="block text-xl font-semibold text-gray-700 mb-4">명령</label>
-                <div className="flex flex-col sm:flex-row gap-2 sm:gap-0">
+                <div className="flex gap-0">
                   <input
                     id="commandInput"
                     type="text"
                     value={voice.commandInput}
                     onChange={(e) => voice.handleCommandInputChange(e.target.value)}
-                    className="flex-1 p-2 border border-gray-300 rounded-md sm:rounded-l-md sm:rounded-r-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-sm bg-white"
+                    className="flex-1 p-2 border border-gray-300 rounded-l-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-sm bg-white"
                     placeholder="명령을 직접 입력하세요..."
                     onKeyDown={(e) => e.key === 'Enter' && voice.handleSendCommand()}
                   />
                   <button
                     onClick={voice.handleSendCommand}
                     disabled={!voice.commandInput.trim() || drone.connectionStatus !== 'connected'}
-                    className="bg-blue-500 text-white px-4 py-2 rounded-md sm:rounded-l-none sm:rounded-r-md hover:bg-blue-600 text-sm font-medium disabled:bg-gray-300 disabled:cursor-not-allowed whitespace-nowrap"
+                    className="bg-blue-500 text-white px-4 py-2 rounded-r-md hover:bg-blue-600 text-sm font-medium disabled:bg-gray-300 disabled:cursor-not-allowed whitespace-nowrap"
                   >
                     전송
                   </button>
