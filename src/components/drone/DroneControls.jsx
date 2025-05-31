@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 
 export default function DroneControls({ 
@@ -8,8 +9,8 @@ export default function DroneControls({
 }) {
   return (
     <div>
-      <h3 className="text-lg font-medium text-gray-800 mb-3 p-2.5 border-b ">빠른 실행</h3>
-      <div className="grid grid-cols-3 gap-4 p-1">
+      <h3 className="text-xl font-semibold text-gray-700 mb-4">빠른 실행</h3>
+      <div className="grid grid-cols-3 gap-4">
         <button 
           onClick={onArmDisarm}
           disabled={connectionStatus !== 'connected'}

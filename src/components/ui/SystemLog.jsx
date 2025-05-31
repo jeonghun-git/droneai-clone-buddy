@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 
 export default function SystemLog({ 
@@ -12,7 +13,7 @@ export default function SystemLog({
 }) {
   return (
     <div className="bg-white rounded-xl shadow-lg p-6 col-span-3 flex flex-col">
-      <div className="flex justify-between items-center border-b pb-3 mb-3">
+      <div className="flex justify-between items-center border-b pb-2 mb-4">
         <h2 className="text-xl font-semibold text-gray-700">📜 시스템 로그</h2>
         <div className="text-xs text-gray-500">{new Date().toLocaleString()}</div>
       </div>

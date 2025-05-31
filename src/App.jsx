@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from 'react';
 import Header from './components/ui/Header';
 import VoiceControl from './components/drone/VoiceControl';
@@ -38,7 +39,7 @@ export default function DroneControlUI() {
         {/* 첫 번째 행: 명령 제어 패널과 카메라 제어 패널 */}
         <div className="grid grid-cols-1 mb-3 md:grid-cols-5 gap-4 md:gap-5">
           {/* 명령 제어 패널 */}
-          <div className="p-5 flex flex-col md:col-span-2">
+          <div className="flex flex-col md:col-span-2">
             {voice.isVoiceMode ? (
               <VoiceControl 
                 isVoiceMode={voice.isVoiceMode}
@@ -52,8 +53,8 @@ export default function DroneControlUI() {
                 onSendCommand={voice.handleSendCommand}
               />
             ) : (
-              <div className="mb-4">
-                <label htmlFor="commandInput" className="block text-sm font-medium text-gray-700 mb-1">명령</label>
+              <div className="bg-white rounded-xl shadow-lg p-6 mb-4">
+                <label htmlFor="commandInput" className="block text-xl font-semibold text-gray-700 mb-4">명령</label>
                 <div className="flex">
                   <input
                     id="commandInput"
@@ -72,19 +73,16 @@ export default function DroneControlUI() {
                     전송
                   </button>
                 </div>
-
               </div>
             )}
-              <div className='bg-white rounded-xl shadow-lg p-4 flex flex-col md:col-span-2 mt-4 mb-3'>
-                <DroneControls 
-                  isArmed={drone.isArmed}
-                  droneState={drone.droneState}
-                  connectionStatus={drone.connectionStatus}
-                  onArmDisarm={drone.handleArmDisarm}
-                />
-              </div>  
-
-
+            <div className='bg-white rounded-xl shadow-lg p-6 flex flex-col md:col-span-2'>
+              <DroneControls 
+                isArmed={drone.isArmed}
+                droneState={drone.droneState}
+                connectionStatus={drone.connectionStatus}
+                onArmDisarm={drone.handleArmDisarm}
+              />
+            </div>  
           </div>
 
           {/* 카메라 및 드론 상태 패널 */}
@@ -104,8 +102,8 @@ export default function DroneControlUI() {
         {/* 두 번째 행: 지도와 시스템 로그 */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-5">
           {/* 지도 컴포넌트 */}
-          <div className="bg-white rounded-xl shadow-lg p-4 flex flex-col md:col-span-3" style={{ minHeight: '300px', zIndex: 0 }}>
-            <h2 className="text-lg font-semibold text-gray-700 border-b pb-2 mb-3">
+          <div className="bg-white rounded-xl shadow-lg p-6 flex flex-col md:col-span-3" style={{ minHeight: '300px', zIndex: 0 }}>
+            <h2 className="text-xl font-semibold text-gray-700 border-b pb-2 mb-4">
               현재 위치
             </h2>
             <div style={{ height: '250px', position: 'relative', zIndex: 0 }}>
