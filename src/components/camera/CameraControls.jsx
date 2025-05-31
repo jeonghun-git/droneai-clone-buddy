@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 
 import React from 'react';
@@ -12,7 +13,7 @@ export default function CameraControls({
   droneState
 }) {
   return (
-    <div className="bg-white rounded-xl shadow-lg p-4 md:p-6 mt-3 md:mt-6">
+    <div className="bg-white rounded-xl shadow-lg p-4 md:p-6 h-full flex flex-col">
       <div className="flex justify-between items-center mb-3 md:mb-4">
         <h2 className="text-lg md:text-xl font-semibold text-gray-700">📷 카메라 & 드론 상태</h2>
         <div className="text-xs md:text-sm bg-gray-100 px-2 md:px-3 py-1 rounded-full font-medium">
@@ -20,7 +21,7 @@ export default function CameraControls({
         </div>
       </div>
       
-      <div className="bg-black rounded-lg mb-3 md:mb-4 flex items-center justify-center" style={{ height: '180px', maxHeight: '30vh' }}>
+      <div className="bg-black rounded-lg mb-3 md:mb-4 flex items-center justify-center flex-1" style={{ minHeight: '180px' }}>
         {connectionStatus === 'connected' ? (
           cameraState.streaming ? (
             <div className="relative w-full h-full">

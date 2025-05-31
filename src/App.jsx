@@ -39,7 +39,7 @@ export default function DroneControlUI() {
         {/* 첫 번째 행: 명령 제어 패널과 카메라 제어 패널 */}
         <div className="grid grid-cols-1 mb-3 md:grid-cols-5 gap-4 md:gap-5">
           {/* 왼쪽 두 개의 컨테이너 */}
-          <div className="md:col-span-2 flex flex-col gap-4">
+          <div className="md:col-span-2 flex flex-col gap-4 h-full">
             {/* 음성 명령 제어 컨테이너 */}
             {voice.isVoiceMode ? (
               <VoiceControl 
@@ -56,20 +56,20 @@ export default function DroneControlUI() {
             ) : (
               <div className="bg-white rounded-xl shadow-lg p-6">
                 <label htmlFor="commandInput" className="block text-xl font-semibold text-gray-700 mb-4">명령</label>
-                <div className="flex">
+                <div className="flex flex-col sm:flex-row gap-2 sm:gap-0">
                   <input
                     id="commandInput"
                     type="text"
                     value={voice.commandInput}
                     onChange={(e) => voice.handleCommandInputChange(e.target.value)}
-                    className="flex-1 p-2 border border-gray-300 rounded-l-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-sm bg-white"
+                    className="flex-1 p-2 border border-gray-300 rounded-md sm:rounded-l-md sm:rounded-r-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-sm bg-white"
                     placeholder="명령을 직접 입력하세요..."
                     onKeyDown={(e) => e.key === 'Enter' && voice.handleSendCommand()}
                   />
                   <button
                     onClick={voice.handleSendCommand}
                     disabled={!voice.commandInput.trim() || drone.connectionStatus !== 'connected'}
-                    className="bg-blue-500 text-white px-4 py-2 rounded-r-md hover:bg-blue-600 text-sm font-medium disabled:bg-gray-300 disabled:cursor-not-allowed"
+                    className="bg-blue-500 text-white px-4 py-2 rounded-md sm:rounded-l-none sm:rounded-r-md hover:bg-blue-600 text-sm font-medium disabled:bg-gray-300 disabled:cursor-not-allowed whitespace-nowrap"
                   >
                     전송
                   </button>
@@ -89,7 +89,7 @@ export default function DroneControlUI() {
           </div>
 
           {/* 카메라 및 드론 상태 패널 */}
-          <div className="md:col-span-3">
+          <div className="md:col-span-3 h-full">
             <CameraControls 
               cameraState={camera.cameraState}
               connectionStatus={drone.connectionStatus}
