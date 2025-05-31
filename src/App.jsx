@@ -69,7 +69,7 @@ export default function DroneControlUI() {
                   <button
                     onClick={voice.handleSendCommand}
                     disabled={!voice.commandInput.trim() || drone.connectionStatus !== 'connected'}
-                    className="bg-blue-500 text-white px-4 py-2 rounded-r-md hover:bg-blue-600 text-sm font-medium disabled:bg-gray-300 disabled:cursor-not-allowed whitespace-nowrap"
+                    className="bg-blue-500 text-white px-4 py-2 rounded-r-md hover:bg-blue-600 text-sm font-medium disabled:bg-gray-300 disabled:cursor-not-allowed whitespace-nowrap min-w-[60px]"
                   >
                     전송
                   </button>
