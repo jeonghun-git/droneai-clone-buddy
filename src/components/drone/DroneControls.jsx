@@ -10,7 +10,7 @@ export default function DroneControls({
   return (
     <div>
       <h3 className="text-xl font-semibold text-gray-700 mb-4">빠른 실행</h3>
-      <div className="border-b pb-2 mb-4">
+      <div className="border-b pb-4 mb-4">
         <div className="flex space-x-2">
           <button 
             onClick={onArmDisarm}
