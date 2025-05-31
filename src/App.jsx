@@ -75,7 +75,7 @@ export default function DroneControlUI() {
                 </div>
               </div>
             )}
-            <div className='bg-white rounded-xl shadow-lg p-6 flex flex-col md:col-span-2'>
+            <div className='bg-white rounded-xl shadow-lg p-6 flex flex-col md:col-span-2 mt-4'>
               <DroneControls 
                 isArmed={drone.isArmed}
                 droneState={drone.droneState}
