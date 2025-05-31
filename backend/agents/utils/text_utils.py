@@ -11,11 +11,6 @@ def optimize_search_query(user_question: str) -> str:
     # 기본적인 전처리
     query = user_question.strip()
     
-    # 불필요한 단어 제거
-    remove_words = ["검색해줘", "알아봐", "찾아줘", "정보", "어떻게", "뭐야", "뭔가", "좀", "해줘", "주세요"]
-    for word in remove_words:
-        query = query.replace(word, "")
-    
     # 공백 정리
     query = " ".join(query.split())
     

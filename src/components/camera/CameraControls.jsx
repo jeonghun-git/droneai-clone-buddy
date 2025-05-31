@@ -12,15 +12,15 @@ export default function CameraControls({
   droneState
 }) {
   return (
-    <div className="bg-white rounded-xl shadow-lg p-6 mt-6">
-      <div className="flex justify-between items-center mb-4">
-        <h2 className="text-xl font-semibold text-gray-700">📷 카메라 & 드론 상태</h2>
-        <div className="text-sm bg-gray-100 px-3 py-1 rounded-full font-medium">
+    <div className="bg-white rounded-xl shadow-lg p-4 md:p-6 mt-3 md:mt-6">
+      <div className="flex justify-between items-center mb-3 md:mb-4">
+        <h2 className="text-lg md:text-xl font-semibold text-gray-700">📷 카메라 & 드론 상태</h2>
+        <div className="text-xs md:text-sm bg-gray-100 px-2 md:px-3 py-1 rounded-full font-medium">
           🔋 배터리: {connectionStatus === 'connected' ? '87%' : '0%'}
         </div>
       </div>
       
-      <div className="bg-black rounded-lg aspect-video mb-4 flex items-center justify-center">
+      <div className="bg-black rounded-lg mb-3 md:mb-4 flex items-center justify-center" style={{ height: '180px', maxHeight: '30vh' }}>
         {connectionStatus === 'connected' ? (
           cameraState.streaming ? (
             <div className="relative w-full h-full">
@@ -58,13 +58,13 @@ export default function CameraControls({
         )}
       </div>
       
-      <div className="flex justify-between mb-4">
+      <div className="flex flex-col md:flex-row md:justify-between mb-3 md:mb-4 gap-2 md:gap-0">
         <div className="flex space-x-2">
           <button 
             onClick={onToggleStreaming}
             disabled={connectionStatus !== 'connected'}
             className={`
-              py-2.5 px-4 rounded-md font-semibold text-xs focus:outline-none focus:ring-2 focus:ring-offset-2 transition-colors
+              py-2 px-3 md:py-2.5 md:px-4 rounded-md font-semibold text-xs focus:outline-none focus:ring-2 focus:ring-offset-2 transition-colors
               ${cameraState.streaming 
                 ? 'bg-red-500 text-white hover:bg-red-600 focus:ring-red-500' 
                 : 'bg-blue-500 text-white hover:bg-blue-600 focus:ring-blue-500'}
@@ -77,7 +77,7 @@ export default function CameraControls({
             onClick={onToggleRecording}
             disabled={connectionStatus !== 'connected' || !cameraState.streaming}
             className={`
-              py-2.5 px-4 rounded-md font-semibold text-xs focus:outline-none focus:ring-2 focus:ring-offset-2 transition-colors
+              py-2 px-3 md:py-2.5 md:px-4 rounded-md font-semibold text-xs focus:outline-none focus:ring-2 focus:ring-offset-2 transition-colors
               ${cameraState.recording 
                 ? 'bg-red-500 text-white hover:bg-red-600 focus:ring-red-500 animate-pulse' 
                 : 'bg-gray-200 text-gray-700 hover:bg-gray-300 focus:ring-gray-500'}
@@ -88,12 +88,12 @@ export default function CameraControls({
           </button>
         </div>
         
-        <div className="flex space-x-2">
+        <div className="flex space-x-2 mt-2 md:mt-0">
           <button 
             onClick={onChangeCameraMode}
             disabled={connectionStatus !== 'connected'}
             className="
-              py-2.5 px-4 bg-gray-200 text-gray-700 rounded-md font-semibold text-xs hover:bg-gray-300 
+              py-2 px-3 md:py-2.5 md:px-4 bg-gray-200 text-gray-700 rounded-md font-semibold text-xs hover:bg-gray-300 
               focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 transition-colors
               disabled:opacity-50 disabled:cursor-not-allowed
             "
@@ -104,7 +104,7 @@ export default function CameraControls({
             value={cameraState.resolution}
             onChange={onChangeCameraResolution}
             disabled={connectionStatus !== 'connected'}
-            className="py-2.5 px-2 bg-gray-100 border border-gray-300 text-gray-700 rounded-md font-semibold text-xs focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-shadow disabled:opacity-50 disabled:cursor-not-allowed"
+            className="py-2 px-2 md:py-2.5 md:px-3 bg-gray-100 border border-gray-300 text-gray-700 rounded-md font-semibold text-xs focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-shadow disabled:opacity-50 disabled:cursor-not-allowed"
           >
             <option value="720p">HD (720p)</option>
             <option value="1080p">FHD (1080p)</option>
@@ -113,22 +113,22 @@ export default function CameraControls({
         </div>
       </div>
 
-      <div className="grid grid-cols-3 gap-4 text-center">
-        <div className="bg-gray-100 p-3 rounded-lg">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 md:gap-4 text-center">
+        <div className="bg-gray-100 p-2 md:p-3 rounded-lg">
           <div className="text-xs text-gray-500 uppercase tracking-wider">위치 (Lat, Lng)</div>
-          <div className="font-semibold text-sm mt-1">
+          <div className="font-semibold text-xs md:text-sm mt-1">
             {droneState.gps.lat.toFixed(4)}, {droneState.gps.lng.toFixed(4)}
           </div>
         </div>
-        <div className="bg-gray-100 p-3 rounded-lg">
+        <div className="bg-gray-100 p-2 md:p-3 rounded-lg">
           <div className="text-xs text-gray-500 uppercase tracking-wider">고도 / 속도</div>
-          <div className="font-semibold text-sm mt-1">
+          <div className="font-semibold text-xs md:text-sm mt-1">
             {droneState.altitude.toFixed(1)}m / {droneState.speed.toFixed(1)}m/s
           </div>
         </div>
-        <div className="bg-gray-100 p-3 rounded-lg">
+        <div className="bg-gray-100 p-2 md:p-3 rounded-lg">
           <div className="text-xs text-gray-500 uppercase tracking-wider">GPS 위성</div>
-          <div className="font-semibold text-sm mt-1">
+          <div className="font-semibold text-xs md:text-sm mt-1">
             {droneState.gps.satellites} <span className={droneState.gps.satellites > 6 ? 'text-green-500' : 'text-orange-500'}>({droneState.gps.satellites > 6 ? '안정적' : '불안정'})</span>
           </div>
         </div>
