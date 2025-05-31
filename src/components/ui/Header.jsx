@@ -19,7 +19,7 @@ export default function Header({ connectionStatus, onConnect }) {
           </div>
           
           {/* 버튼들 */}
-          <div className="flex space-x-4">
+          <div className="flex space-x-4 justify-end md:justify-start">
             <button 
               className="py-2 px-4 bg-white bg-opacity-10 rounded-md text-sm font-medium hover:bg-opacity-20 transition-colors"
             >
