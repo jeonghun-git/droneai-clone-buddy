@@ -27,13 +27,13 @@ export default function DroneControls({
         </button>
         <button 
           disabled={connectionStatus !== 'connected' || !isArmed}
-          className="flex items-center justify-center px-4 py-1.5 bg-indigo-500 text-white rounded-md text-sm font-medium hover:bg-indigo-600 disabled:opacity-50 disabled:cursor-not-allowed"
+          className="flex items-center justify-center px-4 py-1.5 bg-gray-500 text-white rounded-md text-sm font-medium hover:bg-gray-600 disabled:opacity-50 disabled:cursor-not-allowed"
         >
           🚀 이륙
         </button>
         <button 
           disabled={connectionStatus !== 'connected' || !droneState.isFlying}
-          className="flex items-center justify-center px-4 py-1.5 bg-orange-500 text-white rounded-md text-sm font-medium hover:bg-orange-600 disabled:opacity-50 disabled:cursor-not-allowed"
+          className="flex items-center justify-center px-4 py-1.5 bg-gray-600 text-white rounded-md text-sm font-medium hover:bg-gray-700 disabled:opacity-50 disabled:cursor-not-allowed"
         >
           🛬 착륙
         </button>
