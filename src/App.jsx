@@ -39,43 +39,45 @@ export default function DroneControlUI() {
         {/* 첫 번째 행: 명령 제어 패널과 카메라 제어 패널 */}
         <div className="grid grid-cols-1 mb-3 md:grid-cols-5 gap-4 md:gap-5">
           {/* 명령 제어 패널 */}
-          <div className="flex flex-col md:col-span-2">
-            {voice.isVoiceMode ? (
-              <VoiceControl 
-                isVoiceMode={voice.isVoiceMode}
-                isRecording={voice.isRecording}
-                autoVoice={voice.autoVoice}
-                commandInput={voice.commandInput}
-                connectionStatus={drone.connectionStatus}
-                onToggleRecording={voice.toggleRecording}
-                onToggleAutoVoice={voice.toggleAutoVoice}
-                onCommandInputChange={(e) => voice.handleCommandInputChange(e.target.value)}
-                onSendCommand={voice.handleSendCommand}
-              />
-            ) : (
-              <div className="bg-white rounded-xl shadow-lg p-6 mb-4">
-                <label htmlFor="commandInput" className="block text-xl font-semibold text-gray-700 mb-4">명령</label>
-                <div className="flex">
-                  <input
-                    id="commandInput"
-                    type="text"
-                    value={voice.commandInput}
-                    onChange={(e) => voice.handleCommandInputChange(e.target.value)}
-                    className="flex-1 p-2 border border-gray-300 rounded-l-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-sm bg-white"
-                    placeholder="명령을 직접 입력하세요..."
-                    onKeyDown={(e) => e.key === 'Enter' && voice.handleSendCommand()}
-                  />
-                  <button
-                    onClick={voice.handleSendCommand}
-                    disabled={!voice.commandInput.trim() || drone.connectionStatus !== 'connected'}
-                    className="bg-blue-500 text-white px-4 py-2 rounded-r-md hover:bg-blue-600 text-sm font-medium disabled:bg-gray-300 disabled:cursor-not-allowed"
-                  >
-                    전송
-                  </button>
+          <div className="bg-white rounded-xl shadow-lg p-6 flex flex-col md:col-span-2 h-full">
+            <div className="mb-4">
+              {voice.isVoiceMode ? (
+                <VoiceControl 
+                  isVoiceMode={voice.isVoiceMode}
+                  isRecording={voice.isRecording}
+                  autoVoice={voice.autoVoice}
+                  commandInput={voice.commandInput}
+                  connectionStatus={drone.connectionStatus}
+                  onToggleRecording={voice.toggleRecording}
+                  onToggleAutoVoice={voice.toggleAutoVoice}
+                  onCommandInputChange={(e) => voice.handleCommandInputChange(e.target.value)}
+                  onSendCommand={voice.handleSendCommand}
+                />
+              ) : (
+                <div className="bg-white rounded-xl shadow-lg p-6">
+                  <label htmlFor="commandInput" className="block text-xl font-semibold text-gray-700 mb-4">명령</label>
+                  <div className="flex">
+                    <input
+                      id="commandInput"
+                      type="text"
+                      value={voice.commandInput}
+                      onChange={(e) => voice.handleCommandInputChange(e.target.value)}
+                      className="flex-1 p-2 border border-gray-300 rounded-l-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-sm bg-white"
+                      placeholder="명령을 직접 입력하세요..."
+                      onKeyDown={(e) => e.key === 'Enter' && voice.handleSendCommand()}
+                    />
+                    <button
+                      onClick={voice.handleSendCommand}
+                      disabled={!voice.commandInput.trim() || drone.connectionStatus !== 'connected'}
+                      className="bg-blue-500 text-white px-4 py-2 rounded-r-md hover:bg-blue-600 text-sm font-medium disabled:bg-gray-300 disabled:cursor-not-allowed"
+                    >
+                      전송
+                    </button>
+                  </div>
                 </div>
-              </div>
-            )}
-            <div className='bg-white rounded-xl shadow-lg p-6 flex flex-col md:col-span-2 mt-4'>
+              )}
+            </div>
+            <div className='flex-1'>
               <DroneControls 
                 isArmed={drone.isArmed}
                 droneState={drone.droneState}
